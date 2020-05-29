@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <style>
+   .container{
+      height: 60px;
+      width: 200px;
+      border: 2px solid #eedddd;
+      margin:15px;
+   }
+   .box{
+      float: left;
+      height: 40px;
+      width: 40px;
+      margin: 5px;
+      padding: 5px;
+      font-size:20pt;
+      background-color: #eee;
+    }
+    .red{
+       background-color: #ccaaaa;
+    }
+    .green{
+       background-color: #aaccaa;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  	 <div class="box red"> 1 </div>
+  	 <div class="box"> 2 </div>
+  </div>
+  <div class="container">
+  	 <div class="box"> 3 </div>
+  	 <div class="box"> 4 </div>
+  </div>
+<script>
+  $(".container").html(function(indx, oldHtml){
+    if($(oldHtml).hasClass("red"))
+    	return oldHtml + '<div class="box green"> 2.5 </div>';
+    else
+    	return oldHtml;
+  });
+</script>
+</body>
+</html>

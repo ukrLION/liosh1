@@ -1,0 +1,167 @@
+{% extends 'laba_base.html' %}
+
+
+{% block head%}
+<style type="text/css">
+.block_content_height{
+	height:770px;
+}
+#left_menu>a._3 {
+background-position: 0 0;
+color:#fff;
+}
+.content{
+	background: white;
+		border-right: 1px solid gray;
+		
+		width: 821px;
+}
+
+
+/*//////////////////////////////////////////////////////////////*/
+
+.third_laba {
+	padding: 5px;
+}
+
+
+.calc {
+	margin: auto;
+	/*background: yellow;*/
+	width: 600px;
+	height: 300px;
+	margin-top:50px;
+
+}
+
+.input_number {
+	width: 138px;
+}
+
+</style>
+{% endblock %}
+
+{% block title %}
+third
+{% endblock %}
+
+
+{% block content %}
+
+<script type="text/javascript">
+	
+var result = document.getElementsByName("answer");
+
+function calc1(){
+	console.log("...");
+
+	// let date1 = document.getElementsByName("date1")[0].value;
+	// let date1_arr = date1.split("-");
+
+	let hours1 = document.getElementsByName("hours1")[0].value;
+	let minutes1 = document.getElementsByName("minutes1")[0].value;
+	let seconds1 = document.getElementsByName("seconds1")[0].value;
+
+	let time1 = new Date(Date.UTC(1970,0,1, Number(hours1), Number(minutes1), Number(seconds1)));
+
+
+	// let date2 = document.getElementsByName("date2")[0].value;
+	// let date2_arr = date2.split("-");
+
+	let hours2 = document.getElementsByName("hours2")[0].value;
+	let minutes2 = document.getElementsByName("minutes2")[0].value;
+	let seconds2 = document.getElementsByName("seconds2")[0].value;
+
+	let time2 = new Date(Date.UTC(1970,0,1, Number(hours2), Number(minutes2), Number(seconds2)));
+
+	console.log("1: ",time1,"\n2: ", time2);
+
+	damnJavaScript = new Date(0).getTimezoneOffset();
+
+	let answer = Math.abs(time1-time2);
+	let answerD = new Date(Date.UTC(1970,0,1,0,0,0,answer));
+	
+	console.log(damnJavaScript);
+	console.log(answerD);
+
+	let answer_hours = answerD.getHours()+damnJavaScript/60;
+	let answer_minutes = answerD.getMinutes();
+	let answer_seconds = answerD.getSeconds();
+
+	result[0].innerText = answer_hours.toString()+" : "+answer_minutes.toString()+" : "+answer_seconds.toString() ;
+}
+
+// answerD.getHours(), answerD.getMinutes(), answerD.getSeconds()
+
+</script>
+
+
+
+<div class="third_laba">
+
+<h1 align="center">Считаем время</h1>
+
+
+<div class="calc">
+
+<form action="" method="post" name="form1"></form>	
+	<table width="100%" cellspacing="5">
+	
+	<tr>
+		<td>
+			Час
+		</td>
+		<td>
+			<input type="number" name="hours1" oninput="calc1()" placeholder="24" class="input_number">
+		</td>
+		<td>
+			
+		</td>
+		<td>
+			<input type="number" name="hours2" oninput="calc1()" placeholder="24" class="input_number">
+		</td>
+
+	</tr>
+	<tr>
+		<td>
+			<label for="hour1">Минута</label>
+		</td>
+		<td>
+			<input type="number" name="minutes1" oninput="calc1()" placeholder="60" class="input_number">
+		</td>
+		<td>
+			
+		</td>
+		<td>
+			<input type="number" name="minutes2" oninput="calc1()" placeholder="60" class="input_number">
+		</td>
+
+	</tr>
+	<tr>
+		<td>
+			<label for="hour1">Секунда</label>
+		</td>
+		<td>
+			<input type="number" name="seconds1" oninput="calc1()" placeholder="60" class="input_number">
+		</td>
+		<td>
+			
+		</td>
+		<td>
+			<input type="number" name="seconds2" oninput="calc1()" placeholder="60" class="input_number">
+		</td>
+
+	</tr>
+	<tr>
+		<td colspan="4">
+			<br><font size="5">Разница времени: <p name="answer"></p></font>
+		</td>
+
+	</tr>
+	</table>
+</div>
+
+
+
+</div>
+{% endblock %}

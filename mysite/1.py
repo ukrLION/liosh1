@@ -1,0 +1,15 @@
+import datetime
+import requests
+from requests.exceptions import HTTPError
+import sys
+import os
+
+
+data = {"date":"26.03.2020","bank":"PB","baseCurrency":980,"baseCurrencyLit":"UAH","exchangeRate":[{"baseCurrency":"UAH","saleRateNB":16.8206000,"purchaseRateNB":16.8206000},{"baseCurrency":"UAH","currency":"AZN","saleRateNB":16.5064000,"purchaseRateNB":16.5064000},{"baseCurrency":"UAH","currency":"BYN","saleRateNB":10.7166000,"purchaseRateNB":10.7166000},{"baseCurrency":"UAH","currency":"CAD","saleRateNB":19.5354000,"purchaseRateNB":19.5354000},{"baseCurrency":"UAH","currency":"CHF","saleRateNB":28.5432000,"purchaseRateNB":28.5432000,"saleRate":29.0500000,"purchaseRate":26.7500000},{"baseCurrency":"UAH","currency":"CNY","saleRateNB":3.9376000,"purchaseRateNB":3.9376000},{"baseCurrency":"UAH","currency":"CZK","saleRateNB":1.1017000,"purchaseRateNB":1.1017000,"saleRate":1.1200000,"purchaseRate":0.9300000},{"baseCurrency":"UAH","currency":"DKK","saleRateNB":4.0531000,"purchaseRateNB":4.0531000},{"baseCurrency":"UAH","currency":"EUR","saleRateNB":30.2671000,"purchaseRateNB":30.2671000,"saleRate":30.6000000,"purchaseRate":29.5500000},{"baseCurrency":"UAH","currency":"GBP","saleRateNB":33.0920000,"purchaseRateNB":33.0920000,"saleRate":33.5000000,"purchaseRate":31.2000000},{"baseCurrency":"UAH","currency":"GEL","saleRateNB":8.8533000,"purchaseRateNB":8.8533000},{"baseCurrency":"UAH","currency":"HUF","saleRateNB":0.0853180,"purchaseRateNB":0.0853180},{"baseCurrency":"UAH","currency":"ILS","saleRateNB":7.6876000,"purchaseRateNB":7.6876000},{"baseCurrency":"UAH","currency":"JPY","saleRateNB":0.2508800,"purchaseRateNB":0.2508800},{"baseCurrency":"UAH","currency":"KZT","saleRateNB":0.0624840,"purchaseRateNB":0.0624840},{"baseCurrency":"UAH","currency":"MDL","saleRateNB":1.5519000,"purchaseRateNB":1.5519000},{"baseCurrency":"UAH","currency":"NOK","saleRateNB":2.5680000,"purchaseRateNB":2.5680000},{"baseCurrency":"UAH","currency":"PLZ","saleRateNB":6.6161000,"purchaseRateNB":6.6161000,"saleRate":6.6500000,"purchaseRate":5.9000000},{"baseCurrency":"UAH","currency":"RUB","saleRateNB":0.3556300,"purchaseRateNB":0.3556300,"saleRate":0.3650000,"purchaseRate":0.3200000},{"baseCurrency":"UAH","currency":"SEK","saleRateNB":2.7596000,"purchaseRateNB":2.7596000},{"baseCurrency":"UAH","currency":"SGD","saleRateNB":19.3408000,"purchaseRateNB":19.3408000},{"baseCurrency":"UAH","currency":"TMT","saleRateNB":7.0257000,"purchaseRateNB":7.0257000},{"baseCurrency":"UAH","currency":"TRY","saleRateNB":4.3469000,"purchaseRateNB":4.3469000},{"baseCurrency":"UAH","currency":"UAH","saleRateNB":1.0000000,"purchaseRateNB":1.0000000,"saleRate":1.00000,"purchaseRate":1.000000},{"baseCurrency":"UAH","currency":"USD","saleRateNB":27.9552000,"purchaseRateNB":27.9552000,"saleRate":28.2500000,"purchaseRate":27.5000000},{"baseCurrency":"UAH","currency":"UZS","saleRateNB":0.0025813,"purchaseRateNB":0.0025813}]}
+
+
+
+print("1: ", os.path.abspath(__file__))
+
+print("2: ", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+

@@ -1,0 +1,194 @@
+{% extends 'laba_base.html' %}
+
+
+{% block head%}
+<style type="text/css">
+.block_content_height{
+	height: 760px;
+	
+}
+#left_menu>a._5 {
+background-position: 0 0;
+color:#fff;
+}
+.content{
+	background:#E1E1E1;
+	border-right: 1px solid gray;
+		
+	width: 821px;
+}
+/*////////////////////////////*/
+.fifth_laba{
+	padding: 5px;
+}
+
+.ct{
+	/*background: yellow;*/
+	margin: auto;
+	margin-top: 100px;
+	width: 700px;
+	height: 300px;
+}
+
+
+</style>
+{% endblock %}
+
+
+{% block title %}
+fifth
+{% endblock %}
+ 
+
+{% block content %}
+
+
+
+
+<div class="fifth_laba">
+
+	<div class="ct">
+		
+			<!--///////////////////////////////some left code from internet//////////////////////////////  -->		
+<!-- <script type="text/javascript" language="JavaScript1.2">
+var message="Летим туда, - там много вкусного!"
+var neonbasecolor="#990000"
+var neontextcolor="red"
+var neontextcolor2="#FFFFA8"
+var flashspeed=100
+var flashingletters=3
+var flashingletters2=1
+var flashpause=0
+var n=0
+if (document.all||document.getElementById){
+   document.write('<font color="'+neonbasecolor+'" size=+2>')
+   for (m=0;m<message.length;m++)
+	document.write('<span id="neonlight'+m+'">'+message.charAt(m)+'</span>')
+   document.write('</font>')
+}
+else
+   document.write(message)
+function crossref(number){
+   var crossobj=document.all? eval("document.all.neonlight"+number) : document.getElementById("neonlight"+number)
+   return crossobj
+}
+function neon(){
+   //Change all letters to base color
+   if (n==0){
+	for (m=0;m<message.length;m++)
+	crossref(m).style.color=neonbasecolor
+	}
+   crossref(n).style.color=neontextcolor
+   if (n>flashingletters-1) crossref(n-flashingletters).style.color=neontextcolor2
+   if (n>(flashingletters+flashingletters2)-1) crossref(n-flashingletters-flashingletters2).style.color=neonbasecolor
+   if (n<message.length-1) n++
+   else{
+	n=0
+	clearInterval(flashing)
+	setTimeout("beginneon()",flashpause)
+	return
+	}
+}
+function beginneon(){
+   if (document.all||document.getElementById)
+   flashing=setInterval("neon()",flashspeed)
+}
+beginneon()
+</script>
+
+	 -->
+ <!-- ///////////////////////////////////////////^^^^^^ not my ^^^^^^^^^^^^^^///////////////////////////////////////// -->
+<!-- //////////vvvvvv my code vvvvvvvvvv////////////////////////////////////////// -->
+
+
+
+		<p name="text" class="text">my some text, and it is just text and nothing more</p>
+
+
+<script type="text/javascript">
+
+	
+	function start(){
+		
+		let text_arr = text[0].innerText.split("");
+
+		let text_length = text_arr.length;
+
+		let a = text_length%6;
+		let b = text_length-a+6;
+
+
+		for (i=0;i<(b-text_length);i++){    // добавим пробелов в массив символов шоб масив был кратен 6
+			text_arr.push(" ");
+		}
+		
+
+		let text_length_2 = text_arr.length;
+
+		let newText = "";
+
+		for(i=0;i<text_length_2;i++){
+			let z = i;
+			newText+='<span id="'+z.toString()+'">'+text_arr[i]+'</span>'
+		}
+
+		text[0].innerHTML = newText;
+
+		return text_length_2;
+	}
+
+	function creat_appropriate_array(dict_ch){
+
+		let appropriate_array = []
+
+		for(i=0;i<text_length_3/6;i++){
+			appropriate_array = appropriate_array.concat(dict_ch);
+		}
+
+		return appropriate_array;
+
+	}
+
+
+	function go(){
+		function shift(arr, cnt) {	return arr.slice(cnt).concat(arr.slice(0,cnt));	 }
+
+
+		
+		appropriate_array = shift(appropriate_array,n);
+		
+
+
+		for(i=0;i<text_length_3;i++){
+			let z = i;
+			let letter = document.getElementById(z.toString())
+			letter.style.fontSize = appropriate_array[i][1];
+			letter.style.color = appropriate_array[i][0];
+		}
+
+		
+
+	}
+
+	var SPEED = 100;
+
+	var n = -1
+
+	var dict_ch = [["#ff0000","30px"],["#ffff00","35px"],["#00ff00","40px"],["#00ffff","45px"],["#0000ff","40px"],["#ff00ff","35px"]]
+
+	var text = document.getElementsByName("text");
+	var text_length_3 = start()
+
+	var appropriate_array = creat_appropriate_array(dict_ch);
+
+	console.log(appropriate_array);
+	
+	setInterval(go, SPEED);
+
+
+
+</script>
+	</div>
+
+</div>
+{% endblock %}

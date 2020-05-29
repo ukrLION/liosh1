@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <title></title>
+<style type="text/css">
+	
+
+
+</style>
+
+
+</head>
+<body>
+<p>{{smdt}}</p>
+<p></p>
+<p>request: {{var_request}}
+<p>{{var1}}
+<br>{{var2}}
+<br>{{var2.0}} 
+<br>{{var3}}
+<br>{{var3.key1}}
+<br>{{var4.111}}
+<br>{{var4.111.k}}
+<br>{{var4.000.1}}
+<p>
+<p>
+<form method="POST">
+	{% csrf_token %}
+<table>
+{{FORM}}
+
+</table>
+<input type="submit" value="Send">
+</form>
+<p>answer: {{var_answer}}
+
+
+</body>
+</html>

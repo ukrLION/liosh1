@@ -1,0 +1,338 @@
+{% extends 'laba_base.html' %}
+
+
+{% block head%}
+<style type="text/css">
+/*/////////////*/
+.btn {
+  position: relative;
+  /*display: inline-block;*/
+  float: left;
+  width: 90px;
+  height: 15px;
+  margin-bottom: 8px;
+  /*left:-120px;*/
+  font-size: 90%;
+  font-weight: 700;
+  color: rgb(209,209,217);
+  text-decoration: none;
+  text-shadow: 0 -1px 2px rgba(0,0,0,.2);
+  padding: .2em 1em;
+  outline: none;
+  border-radius: 3px;
+  background: linear-gradient(rgb(110,112,120), rgb(81,81,86)) rgb(110,112,120);
+  box-shadow:
+   0 1px rgba(255,255,255,.2) inset,
+   0 3px 5px rgba(0,1,6,.5),
+   0 0 1px 1px rgba(0,1,6,.2);
+  transition: .2s ease-in-out;
+}
+.btn:hover:not(:active) {
+  background: linear-gradient(rgb(126,126,134), rgb(70,71,76)) rgb(126,126,134);
+}
+.btn:active {
+  top: 1px;
+  background: linear-gradient(rgb(76,77,82), rgb(56,57,62)) rgb(76,77,82);
+  box-shadow:
+   0 0 1px rgba(0,0,0,.5) inset,
+   0 2px 3px rgba(0,0,0,.5) inset,
+   0 1px 1px rgba(255,255,255,.1);
+}
+/*//////////////*/
+
+.block_content_height{
+	height: 500px;
+	
+}
+#left_menu>a._6 {
+background-position: 0 0;
+color:#fff;
+}
+.content{
+	background:#E1E1E1;
+
+	border-right: 1px solid gray;
+		
+	width: 821px;
+}
+/*/////////////////////////////////////*/
+.sixth_laba{
+	padding: 5px;
+}
+
+.ct{
+	margin: auto;
+	margin-top: 100px;
+	width: 700px;
+	height: 400px;
+	/*background: yellow;*/
+}
+
+
+</style>
+{% endblock %}
+
+
+{% block title %}
+sixth
+{% endblock %}
+ 
+
+{% block content %}
+
+
+<div class="sixth_laba">
+
+	<div class="ct">
+
+
+		<table cellspacing="10px" width="100%" >
+			<tr>
+				<td width="33%">
+					<label for="name"><b>Name:</b></label>
+				</td>
+				<td width="33%">
+					<input type="text" name="name" id="name" size="30" value="" oninput="ValidName()">
+				</td>
+				<td><p name="nameValid"></p></td>
+			</tr>
+			<tr>
+				<td>
+					<label for="familyname"><b>famile name:</b></label>
+				</td>
+				<td>
+					<input type="text" name="familyname" id="familyname" size="30" value="" oninput="ValidFamilyName()">
+				</td>
+				<td><p name="familyNameValid"></p></td>
+			</tr>
+			<tr>
+				<td>
+					<label for="companyname"><b>company name:</b></label>
+				</td>
+				<td>
+					<input type="text" name="companyname" id="companyname" size="30" value="" oninput="ValidCompanyName()">
+				</td>
+				<td><p name="companyNameValid"></p></td>
+			</tr>
+			<tr>
+				<td>
+        			<label for="cardNumber"><b>Card Number:    </b></label>
+        		</td>
+        		<td>
+        			<input type="text" name="cardNumber" id="cardNum" size="30" value="" oninput="ValidateCreditCardNumber()" />
+        		</td>
+        		<td>
+        			<p name="cardValid"></p>
+        		</td>
+        	</tr>
+        	<tr>
+				<td>
+        			<label for="phone"><b>Phone:    </b></label>
+        		</td>
+        		<td>
+        			<input type="text" name="phone" id="phone" size="30" value="" oninput="ValidPhone()" />
+        		</td>
+        		<td>
+        			<p name="phoneValid"></p>
+        		</td>
+        	</tr>
+        	<tr>
+				<td>
+        			<label for="email"><b>Email:    </b></label>
+        		</td>
+        		<td>
+        			<input type="text" name="email" id="email" size="30" value="" oninput="ValidEmail()" />
+        		</td>
+        		<td>
+        			<p name="emailValid"></p>
+        		</td>
+        	</tr>
+        	<tr>
+        		<td>
+        			<div class="btn" name="send" onclick="send_()">Отправить</div> 
+        		</td>
+        		<td>
+        			<div class="btn" name="clear" onclick="clear_()">Очистить</div>
+        		</td>
+        		<td>
+        			
+        		</td>
+        	</tr>
+
+		</table>
+
+
+
+
+
+
+
+
+	</div>
+
+</div>
+
+
+
+
+<!-- 5168755106091776 -->
+
+<script type="text/javascript">
+
+var str_not_valid = " top: 1px; background: linear-gradient(rgb(76,77,82), rgb(56,57,62)) rgb(76,77,82); box-shadow: 0 0 1px rgba(0,0,0,.5) inset,  0 2px 3px rgba(0,0,0,.5) inset,  0 1px 1px rgba(255,255,255,.1);"
+
+var str_valid = "position: relative;  /*display: inline-block;*/  float: left;  width: 90px;  height: 15px;  margin-bottom: 8px;  /*left:-120px;*/  font-size: 90%;  font-weight: 700;  color: rgb(209,209,217);  text-decoration: none;  text-shadow: 0 -1px 2px rgba(0,0,0,.2);  padding: .2em 1em;  outline: none;  border-radius: 3px;  background: linear-gradient(rgb(110,112,120), rgb(81,81,86)) rgb(110,112,120);  box-shadow:   0 1px rgba(255,255,255,.2) inset,   0 3px 5px rgba(0,1,6,.5),   0 0 1px 1px rgba(0,1,6,.2);  transition: .2s ease-in-out;";
+
+document.getElementsByName("send")[0].style.cssText = str_not_valid;
+document.getElementsByName("send")[0].onclick = func;
+
+var v1 = false;
+var v2 = false;
+var v3 = false;
+var v4 = false;
+var v5 = false;
+var v6 = false;
+
+function check_valid(){
+	if (v1&&v2&&v3&&v4&&v5&&v6){
+document.getElementsByName("send")[0].style.cssText = str_valid;
+document.getElementsByName("send")[0].onclick = send_;
+	}
+	else{
+		document.getElementsByName("send")[0].style.cssText = str_not_valid;
+document.getElementsByName("send")[0].onclick = func;
+	}
+}
+
+function func(){
+	console.log("s");
+}	
+
+function ValidateCreditCardNumber() {
+
+  let ccNum = document.getElementById("cardNum").value;
+  let visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+  let mastercardRegEx = /^(?:5[1-5][0-9]{14})$/;
+  let amexpRegEx = /^(?:3[47][0-9]{13})$/;
+  let discovRegEx = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+  let isValid = false;
+
+  if (visaRegEx.test(ccNum)) {
+    isValid = true;
+  } else if(mastercardRegEx.test(ccNum)) {
+    isValid = true;
+  } else if(amexpRegEx.test(ccNum)) {
+    isValid = true;
+  } else if(discovRegEx.test(ccNum)) {
+    isValid = true;
+  }
+
+  let answer = document.getElementsByName("cardValid");
+
+  if(isValid) {
+     answer[0].innerText = "";
+     v6 = true;
+  } 
+  else {
+     answer[0].innerText = "    not valid!!!";
+     answer[0].style.color = "red";
+     v6 = false;
+  }
+  check_valid();
+}
+
+function ValidName(){
+
+	let name = document.getElementsByName("name");
+	let answer = document.getElementsByName("nameValid");
+	
+	if(/^[a-zA-Zа-яА-ЯёЁ'][a-zA-Z-а-яА-ЯёЁ' ]+[a-zA-Zа-яА-ЯёЁ']?$/.test(name[0].value)){
+		answer[0].innerText = "";
+		v5 = true;
+	}
+	else{
+		answer[0].innerText = "    not valid!!!";
+		answer[0].style.color = "red"
+		v5 = false;
+	}
+	check_valid();
+}
+
+function ValidFamilyName(){
+	let familyname = document.getElementsByName("familyname");
+	let answer = document.getElementsByName("familyNameValid");
+	if(/^[a-zA-Zа-яА-ЯёЁ'][a-zA-Z-а-яА-ЯёЁ' ]+[a-zA-Zа-яА-ЯёЁ']?$/.test(familyname[0].value)){
+		answer[0].innerText = "";
+		v4 = true;
+	}
+	else{
+		answer[0].innerText = "    not valid!!!";
+		answer[0].style.color = "red"
+		v4 = false;
+	}
+	check_valid();
+}
+function ValidCompanyName(){
+	let companyname = document.getElementsByName("companyname");
+	let answer = document.getElementsByName("companyNameValid");
+	if(/^[a-zA-Zа-яА-ЯёЁ0-9'][a-zA-Z-а-яА-ЯёЁ0-9' ]+[a-zA-Zа-яА-ЯёЁ0-9']?$/.test(companyname[0].value)){
+		answer[0].innerText = "";
+		v3 = true;
+	}
+	else{
+		answer[0].innerText = "    not valid!!!";
+		answer[0].style.color = "red"
+		v3 = false;
+	}
+	check_valid();
+}
+function ValidPhone(){
+	let phone = document.getElementsByName("phone");
+	let answer = document.getElementsByName("phoneValid");
+	let reg = /^([+]?[0-9\s-\(\)]{3,25})*$/;
+	if(reg.test(phone[0].value) && (phone[0].value != "")){
+		answer[0].innerText = "";
+		v2 = true;
+	}
+	else{
+		answer[0].innerText = "    not valid!!!";
+		answer[0].style.color = "red"
+		v2 = false;
+
+	}
+	check_valid();
+}
+function ValidEmail(){
+	let email = document.getElementsByName("email");
+	let answer = document.getElementsByName("emailValid");
+	let reg = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
+	if(reg.test(email[0].value)){
+		answer[0].innerText = "";
+		v1 = true;
+	}
+	else{
+		answer[0].innerText = "    not valid!!!";
+		answer[0].style.color = "red"
+		v1 = false;
+	}
+	check_valid();
+}
+
+function clear_(){
+	document.getElementsByName("email")[0].value = "";
+	document.getElementsByName("phone")[0].value = "";
+	document.getElementsByName("companyname")[0].value = "";
+	document.getElementsByName("familyname")[0].value = "";
+	document.getElementsByName("name")[0].value = "";
+	document.getElementsByName("cardNumber")[0].value = "";
+	v1 = v2 = v3 = v4 = v5 = v6 =  false;
+}
+function send_(){
+	alert("Типа отправилось");
+}
+
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,247 @@
+{% extends 'laba_base.html' %}
+
+
+{% block head%}
+<style type="text/css">
+
+/*//////////vvvvvvvvvvvvBUTTONSvvvvvvvvvv///////////////////////////////////////*/
+ 
+a{
+
+ color:black;
+ padding: 5px 5px;
+ margin: 5px 5px;
+ width:118px;
+ text-decoration:none;
+ text-align:left;
+ display: block;
+ background-image: linear-gradient(to left,transparent,transparent 50%,silver 50%,gray);
+ background-position: 100% 0;
+ background-size: 200% 100%;
+ transition: all .25s ease-in;
+ font: 400 18px tahoma;
+ /*border: 1px solid #00C6FF;*/
+}
+a:hover {
+background-position: 0 0;
+color:#fff;
+}
+    
+/*//////////////////^^^^^^^^^^BUTTONS^^^^^^^^^///////////////////////////////////////////*/
+
+
+
+.block_content_height{
+	height: 770px;
+	
+}
+#left_menu>a._4 {
+background-position: 0 0;
+color:#fff;
+}
+.content{
+	background: white;
+
+	border-right: 1px solid gray;
+		
+	width: 821px;
+}
+
+.fourth_laba{
+	padding: 5px;
+	padding-top: 10px;
+}
+
+.ct {  
+	/* central with both menu */
+	position: relative;
+	margin: auto;
+	padding: 10px;
+	margin-top:  50px;
+	width: 400px;
+	height: 115px;
+	/*background: yellow;*/
+}
+.hid{
+	/*background: green;*/
+	/*border: 1px solid black;*/
+	margin-top: -3px;
+	width: 200px;
+	height:115px;
+	margin-bottom: 10px;
+	padding-left: 5px;
+	}
+.hh1 {
+	display: none;
+}
+.hh2{
+	display: none;
+}
+.hh3{
+	display: none;
+}
+
+
+.line {
+	position: relative;
+	/*display: inline-block;*/
+	float: left;
+	/*background: gray;*/
+	
+	
+}
+/*/////////////*/
+.btn {
+  position: relative;
+  /*display: inline-block;*/
+  width: 90px;
+  margin-bottom: 8px;
+  /*left:-120px;*/
+  font-size: 90%;
+  font-weight: 700;
+  color: rgb(209,209,217);
+  text-decoration: none;
+  text-shadow: 0 -1px 2px rgba(0,0,0,.2);
+  padding: .5em 1em;
+  outline: none;
+  border-radius: 3px;
+  background: linear-gradient(rgb(110,112,120), rgb(81,81,86)) rgb(110,112,120);
+  box-shadow:
+   0 1px rgba(255,255,255,.2) inset,
+   0 3px 5px rgba(0,1,6,.5),
+   0 0 1px 1px rgba(0,1,6,.2);
+  transition: .2s ease-in-out;
+}
+.btn:hover:not(:active) {
+  background: linear-gradient(rgb(126,126,134), rgb(70,71,76)) rgb(126,126,134);
+}
+.btn:active {
+  top: 1px;
+  background: linear-gradient(rgb(76,77,82), rgb(56,57,62)) rgb(76,77,82);
+  box-shadow:
+   0 0 1px rgba(0,0,0,.5) inset,
+   0 2px 3px rgba(0,0,0,.5) inset,
+   0 1px 1px rgba(255,255,255,.1);
+}
+/*//////////////*/
+
+.pic{
+
+	margin: auto;
+	margin-top: 100px;
+	position: relative;
+	background: green;
+	width:100px;
+	height: 100px;
+}
+
+img{
+	width: 200px;
+	-webkit-transition: width 0.5s;
+	-moz-transition: width 0.5s;
+	-o-transition: width 0.5s;
+	transition: width 0.5s;
+}
+img:hover{
+	width: 400px;
+}
+</style>
+{% endblock %}
+
+
+{% block title %}
+fourth
+{% endblock %}
+ 
+
+{% block content %}
+<script type="text/javascript">
+
+	var parent = document.getElementsByName("parent");
+
+	var hid1 = document.getElementsByName("hid1");
+	var hid2 = document.getElementsByName("hid2");
+	var hid3 = document.getElementsByName("hid3");
+
+
+	function func(event){
+		
+		
+		if (event.toElement == parent[0]){
+			console.log("yess");
+			hid3[0].style.display = "none";
+			hid1[0].style.display = "none";
+			hid2[0].style.display = "none";
+
+		}
+	}
+	
+	function show1(){
+		console.log("show1");
+		hid3[0].style.display = "none";
+		hid2[0].style.display = "none";
+		hid1[0].style.display = "block";
+	}
+	function show2(){
+		console.log("show2");
+		hid3[0].style.display = "none";
+		hid1[0].style.display = "none";
+		hid2[0].style.display = "block";
+	}
+	function show3(){
+		hid2[0].style.display = "none";
+		hid1[0].style.display = "none";
+		hid3[0].style.display = "block";
+		console.log("show3");
+	}
+	
+
+
+
+
+</script>
+
+
+
+
+<div name="parent" class="fourth_laba block_content_height" onmouseover="func(event)">
+<h1> ЛАБ4</h1>
+
+
+<div class="ct" >
+	<div class="line">
+		<div name="btn1" class="btn _1" onclick="show1()">1-3</div>
+
+		<div name="btn2" class="btn _2" onclick="show2()">4-6</div>
+
+		<div name="btn3" class="btn _3" onclick="show3()">7-9</div>
+	</div>
+	<div class="line">
+		<div name="hid1" class="hid hh1">
+			<a class="_1" href="{% url 'first' %}">№ 1</a>
+        	<a class="_2" href="{% url 'second' %}">№ 2</a>
+        	<a class="_3" href="{% url 'third' %}">№ 3</a>
+		</div>
+		<div name="hid2" class="hid hh2">
+			<a class="_4" href="{% url 'fourth' %}">№ 4</a>
+        	<a class="_5" href="{% url 'fifth' %}">№ 5</a>
+        	<a class="_6" href="{% url 'sixth' %}">№ 6</a>
+		</div>
+		<div name="hid3" class="hid hh3">
+			<a class="_7" href="{% url 'seventh' %}">№ 7</a>
+        	<a class="_8" href="{% url 'eighth' %}">№ 8</a>
+        	<a class="_9" href="{% url 'ninth' %}">№ 9</a>
+		</div>
+	</div>
+</div>
+
+
+
+{% load static%}
+<br><br>
+<p align="center"><img src="{% static 'images/laba/4/41.png' %}" alt="flover" / ></p>
+
+
+
+</div>
+{% endblock %}

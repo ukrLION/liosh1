@@ -1,0 +1,315 @@
+{% extends 'laba_base.html' %}
+
+
+{% block head%}
+	<style type="text/css">
+	.block_content_height{
+		height:1000px;
+
+	}
+	#left_menu>a._2 {
+	background-position: 0 0;
+	color:#fff;
+	}
+
+	.content{
+		background: white;
+		border-right: 1px solid gray;
+		
+		width: 821px;
+
+	}
+	/*//vvvvvv this document vvvvvvvv/////////////^^^^^^other document^^^^^//////////////////*/
+	
+
+	.second_laba{
+		padding: 10px;
+	}
+
+
+	.value  {
+		font-size: 14pt;
+	}
+
+
+	.grad {
+		position: relative;
+		float: left;
+		width: 400px;
+		/*background: yellow;*/
+		height: 110px;
+	}
+
+	.rad {
+		position: relative;
+		float: left;
+		width: 400px;
+		height: 110px;
+		/*background: green;*/
+	}
+
+	</style>
+
+
+{% endblock %}
+
+
+{% block title %} 
+	second
+{% endblock %}
+
+
+   
+{% block content %}
+
+<script type="text/javascript">
+	var answer1 = document.getElementsByName("value1");
+	var alpha1 = document.getElementsByName("alpha1");
+	var radius1 = document.getElementsByName("r1");
+
+	function calc1() {
+		
+		let a1 = Number(alpha1[0].value);
+		let r1 = Number(radius1[0].value);
+
+		let Lpi = r1*a1/180;
+		let L = Lpi*Math.PI;
+
+		answer1[0].innerText = Lpi.toString()+"π or "+L.toString();
+	
+	}
+
+	var answer2 = document.getElementsByName("value2");
+	var alpha2 = document.getElementsByName("alpha2");
+	var radius2 = document.getElementsByName("r2");
+
+	function calc2() {
+		
+		let a2 = Number(alpha2[0].value);
+		let r2 = Number(radius2[0].value);
+
+		let L = a2*r2;
+
+		answer2[0].innerText = L.toString();
+	
+	}
+
+	var answer3 = document.getElementsByName("value3");
+	var alpha3 = document.getElementsByName("alpha3");
+	var radius3 = document.getElementsByName("r3");
+
+	function calc3() {
+		
+		let a3 = Number(alpha3[0].value);
+		let r3 = Number(radius3[0].value);
+
+		let Spi = a3/360*r3*r3;
+		let S = Spi*Math.PI;
+
+		answer3[0].innerText = Spi.toString()+"π or "+S.toString();
+	
+	}
+
+
+	var answer4 = document.getElementsByName("value4");
+	var alpha4 = document.getElementsByName("alpha4");
+	var radius4 = document.getElementsByName("r4");
+
+	function calc4() {
+		
+		let a4 = Number(alpha4[0].value);
+		let r4 = Number(radius4[0].value);
+
+		let S = a4/2*r4*r4;
+
+		answer4[0].innerText = S.toString();
+	
+	}
+
+
+
+
+
+</script>
+
+{% load static %}
+	<div class="second_laba">
+
+<h1>Длинна дуги:</h1>
+<br>
+
+<p align="center"><img src="{% static 'images/laba/2/21_2.jpg' %}" width="600" height="300" alt="Some math thing" / ></p>
+<br>
+<br>
+
+
+<div class="grad">
+	<form action="" method="post" name="form1"></form>
+
+	<table>
+		<tr>
+			<td>
+				<label for="alpha1"><font size="5">&alpha;:   </font></label>
+			</td>
+			<td>	
+				<input form="form1" name="alpha1" min="0" type="number" placeholder="360°" oninput="calc1()">
+			</td>
+			
+		</tr>
+		<tr width="500px">
+			<td>
+				<label for="r1"><font size="5">r:   </font></label>
+			</td>
+			<td>
+				<input form="form1" name="r1" min="0" type="number" placeholder="0" oninput="calc1()">
+			</td>
+			
+		</tr>
+		<tr>
+			<td>
+				<font size="5">L:    </font>
+			</td>
+			<td>
+				<p class="value" name="value1"></p>
+			</td>
+			
+		</tr>
+	</table>
+
+</div>
+<div class="rad">
+	<form action="" method="post" name="form2"></form>
+
+	<table>
+		<tr>
+			<td>
+				<label for="alpha2"><font size="5">&alpha;:   </font></label>
+			</td>
+			<td>	
+				<input form="form2" name="alpha2" min="0" type="number" placeholder="радиан * 180/π" oninput="calc2()">
+			</td>
+			
+		</tr>
+		<tr width="500px">
+			<td>
+				<label for="r2"><font size="5">r:   </font></label>
+			</td>
+			<td>
+				<input form="form2" name="r2" min="0" type="number" placeholder="0" oninput="calc2()">
+			</td>
+			
+		</tr>
+		<tr>
+			<td>
+				<font size="5">L:    </font>
+			</td>
+			<td>
+				<p class="value" name="value2"></p>
+			</td>
+			
+		</tr>
+	</table>
+
+</div>
+
+
+
+
+
+
+<br>
+<h1>Площадь сектора:</h1>
+<br>
+<p align="center"><img border="1px" src="{% static 'images/laba/2/22.jpg' %}" width="600" height="250" alt="Some math thing" / ></p>
+
+
+
+
+
+
+<br>
+<br>
+
+
+<div class="grad">
+	<form action="" method="post" name="form3"></form>
+
+	<table>
+		<tr>
+			<td>
+				<label for="alpha3"><font size="5">&alpha;:   </font></label>
+			</td>
+			<td>	
+				<input form="form3" name="alpha3" min="0" type="number" placeholder="360°" oninput="calc3()">
+			</td>
+			
+		</tr>
+		<tr width="500px">
+			<td>
+				<label for="r3"><font size="5">r:   </font></label>
+			</td>
+			<td>
+				<input form="form3" name="r3" min="0" type="number" placeholder="0" oninput="calc3()">
+			</td>
+			
+		</tr>
+		<tr>
+			<td>
+				<font size="5">S:    </font>
+			</td>
+			<td>
+				<p class="value" name="value3"></p>
+			</td>
+			
+		</tr>
+	</table>
+
+</div>
+<div class="rad">
+	<form action="" method="post" name="form4"></form>
+
+	<table>
+		<tr>
+			<td>
+				<label for="alpha4"><font size="5">&alpha;:   </font></label>
+			</td>
+			<td>	
+				<input form="form4" name="alpha4" min="0" type="number" placeholder="радиан * 180/π" oninput="calc4()">
+			</td>
+			
+		</tr>
+		<tr width="500px">
+			<td>
+				<label for="r4"><font size="5">r:   </font></label>
+			</td>
+			<td>
+				<input form="form4" name="r4" min="0" type="number" placeholder="0" oninput="calc4()">
+			</td>
+			
+		</tr>
+		<tr>
+			<td>
+				<font size="5">S:    </font>
+			</td>
+			<td>
+				<p class="value" name="value4"></p>
+			</td>
+			
+		</tr>
+	</table>
+
+</div>
+
+
+
+
+
+
+
+	</div>
+{% endblock %}
+
+
+
+
+
